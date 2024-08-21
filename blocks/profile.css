@@ -3,6 +3,7 @@
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
   justify-content: space-between;
   padding: 34px 0 20px;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .profile__avatar {
@@ -27,7 +28,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
-  font-family: "Poppins", Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
@@ -42,7 +42,6 @@
   -webkit-box-orient: vertical;
   max-width: 420px;
   height: 48px;
-  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
@@ -56,15 +55,10 @@
   border: none;
   opacity: 70%;
   background-color: #FCF5E5;
-  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
   text-align: left;
-}
-
-.profile__edit-btn:hover {
-  cursor: pointer;
 }
 
 .profile__add-btn {
@@ -80,7 +74,6 @@
   align-items: center;
   gap: 8px;
   color: rgba(252, 245, 229, 1);
-  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
