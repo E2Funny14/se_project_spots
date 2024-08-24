@@ -1,12 +1,12 @@
 .footer {
-  background-color: #FCF5E5;
+  background-color: #fcf5e5;
   padding: 60px 0;
   text-align: center;
 }
 
-.copyright {
-  font-size: 14px;
-  color: #777;
+.footer__copyright {
+  color: #212121;
+  opacity: 70%;
   font-size: 16px;
   font-weight: 400;
   line-height: 1;

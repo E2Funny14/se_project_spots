@@ -1,9 +1,5 @@
-body, html {
-  background-color: #FCF5E5;
-}
-
 .page {
-  background-color: #FCF5E5;
+  background-color: #fcf5e5;
   min-height: 100vh;
   font-family: "Poppins", Arial, sans-serif;
   max-width: 1440px;

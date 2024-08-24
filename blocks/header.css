@@ -4,15 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 46px;
+  min-height: 46px;
   border: 1px;
+  max-width: 100%;
 }
 
 .header__logo {
   width: 94px;
   height: 26px;
   object-fit: contain;
-  font-family: "Poppins", Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 26.04px;
