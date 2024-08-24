@@ -46,6 +46,10 @@ A modern web browser (e.g. Chrome, Firefox, Edge)
 ## Project Video
 
 * [Link to project video](https://1drv.ms/v/s!ArkHR7sa8z1ZbcQwo-vNbrz_b3Y?e=Dvg91M)
+
+## GitHub Link
+
+* [Link to github] (<https://github.com/E2Funny14/se_project_spots>)
   
 **Figma**  
   
