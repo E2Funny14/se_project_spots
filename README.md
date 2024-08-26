@@ -49,7 +49,8 @@ A modern web browser (e.g. Chrome, Firefox, Edge)
 
 ## GitHub Link
 
-* [Link to github] (<https://github.com/E2Funny14/se_project_spots>)
+* [Link to project] (<https://github.com/E2Funny14/se_project_spots.git>)
+
   
 **Figma**  
   
