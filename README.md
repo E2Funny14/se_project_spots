@@ -49,9 +49,8 @@ A modern web browser (e.g. Chrome, Firefox, Edge)
 
 ## GitHub Link
 
-* [Link to project] (<https://github.com/E2Funny14/se_project_spots.git>)
+* [Link to project] (<https://e2funny14.github.io/se_project_spots/>)
 
-  
 **Figma**  
   
 * [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
