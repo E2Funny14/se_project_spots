@@ -4,6 +4,8 @@
   font-weight: 500;
   line-height: 1.2;
   color: #212121;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__image {

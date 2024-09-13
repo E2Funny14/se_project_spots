@@ -33,16 +33,16 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
 
   cardNameEl.textContent = data.name;
-  cardImageEl.textContent = data.link;
-  cardImageEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
 
   return cardElement
 }
 
 function openModal() {
   editModal.classList.add("modal_opened");
-  editModalName.value = profileName.textContent;
-  editModalDescription.value = profileDescription.textContent;
+  editModalName.value = profileName.textContent.trim();
+  editModalDescription.value = profileDescription.textContent.trim();
 }
 
 function closeModal() {
