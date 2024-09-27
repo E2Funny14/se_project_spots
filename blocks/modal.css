@@ -140,6 +140,7 @@
   padding: 18px 0;
   color: #fff;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
