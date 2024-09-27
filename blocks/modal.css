@@ -1,3 +1,14 @@
+#preview-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal_opened {
+  display: flex;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -11,10 +22,16 @@
   align-items: center;
   padding: 0 16px;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  pointer-events: none;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+  pointer-events: auto;
 }
 
 .modal__container {
@@ -25,6 +42,43 @@
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.modal__container-preview {
+  padding: 0;
+  max-width: 80vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+
+.modal__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal__caption {
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  margin: 10px;
+  width: 100%;
+  height: 32px;
+  top: 750px;
+  left: 497px;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 
 .modal__close-btn {
@@ -38,6 +92,14 @@
   opacity: 40%;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.modal__close-btn_preview {
+  background-image: url("../images/previewclosebtn.svg");
+  top: 0;
+  right: -52.5px;
+  opacity: 1;
 }
 
 .modal__title {
@@ -104,5 +166,8 @@
   }
   .modal__submit-btn {
     width: 100%;
+  }
+  .modal__close-btn_preview {
+   top: -25px;
   }
 }
