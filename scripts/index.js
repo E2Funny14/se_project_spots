@@ -60,7 +60,7 @@ function getCardElement(data) {
 
   cardImageEl.addEventListener("click", () => {
     previewModalImageEl.src = data.link;
-    previewModalCaptionEl.alt = data.name;
+    previewModalImageEl.alt = data.name;
     previewModalCaptionEl.textContent = data.name;
     openModal(previewModal);
   });
@@ -68,7 +68,9 @@ function getCardElement(data) {
   cardDeleteBtn.addEventListener("click", () => {
   const card = cardDeleteBtn.closest(".card");
   if (card) {
-    card.remove()}});
+    card.remove()
+  }
+});
 
   return cardElement;
 }
@@ -79,15 +81,11 @@ previewModalCloseBtn.addEventListener("click", () => {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  editModalName.value = profileName.textContent.trim();
-  editModalDescription.value = profileDescription.textContent.trim();
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}}
+}
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -98,7 +96,7 @@ function handleEditModalFormSubmit(evt) {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: cardModalName.value, link: cardModalLink.value};
+  const inputValues = { name: cardModalName.value = "", link: cardModalLink.value = ""};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(cardModal);

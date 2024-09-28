@@ -6,6 +6,12 @@
   color: #212121;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: nowrap;
+  width: calc(100% - 30px);
+  display: inline-block;
 }
 
 .card__image {
