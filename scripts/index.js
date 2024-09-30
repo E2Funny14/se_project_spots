@@ -30,38 +30,36 @@ const editModalDescription = editModal.querySelector("#profile-description-input
 const cardModal = document.querySelector("#add-card-modal");
 const cardModalForm = cardModal.querySelector(".modal__form");
 const closeCardModal = cardModal.querySelector(".modal__close-btn");
-const cardModalLink = cardModal.querySelector("#add-card-link-input");
-const cardModalName = cardModal.querySelector("#card-name-input");
+const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardCaptionInput = cardModal.querySelector("#card-name-input");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn_preview");
 
-const cardTemplate = document.querySelector("#card-template");
+const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+ const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
   const cardNameEl = cardElement.querySelector(".card__title");
+  cardNameEl.textContent = data.name;
   const cardImageEl = cardElement.querySelector(".card__image");
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-
-
-  cardNameEl.textContent = data.name;
-  cardImageEl.src = data.link;
-  cardImageEl.alt = data.alt;
 
   cardLikeBtn.addEventListener("click", () => {
   cardLikeBtn.classList.toggle("card__like-button_liked");
   });
 
   cardImageEl.addEventListener("click", () => {
-    previewModalImageEl.src = data.link;
-    previewModalImageEl.alt = data.name;
-    previewModalCaptionEl.textContent = data.name;
+    previewModalImageEl.src = cardImageEl.src;
+    previewModalImageEl.alt = cardImageEl.alt;
+    previewModalCaptionEl.textContent = cardNameEl.textContent;
     openModal(previewModal);
   });
 
@@ -70,7 +68,7 @@ function getCardElement(data) {
   if (card) {
     card.remove()
   }
-});
+  });
 
   return cardElement;
 }
@@ -94,11 +92,13 @@ function handleEditModalFormSubmit(evt) {
   closeModal(editModal);
 }
 
-function handleNewPostSubmit(evt) {
+function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: cardModalName.value = "", link: cardModalLink.value = ""};
+  const inputValues = { name: cardCaptionInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+ cardCaptionInput.value = "";
+  cardLinkInput.value = "";
   closeModal(cardModal);
 }
 
@@ -111,14 +111,17 @@ closeProfileModal.addEventListener("click", () => {
   closeModal(editModal)});
 
 profileAddButton.addEventListener("click", () => {
-  openModal(cardModal)});
+  openModal(cardModal)
+  cardCaptionInput.value = "Golden Gate Bridge"
+  cardLinkInput.value = "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+});
 
 closeCardModal.addEventListener("click", () => {
   closeModal(cardModal)});
 
 editModalForm.addEventListener("submit", handleEditModalFormSubmit);
-cardModalForm.addEventListener("submit", handleNewPostSubmit);
+cardModalForm.addEventListener("submit", handleAddCardSubmit);
 
-initialCards.forEach(card => {
-  const cardElement = getCardElement(card);
+initialCards.forEach(item => {
+  const cardElement = getCardElement(item);
   cardsList.prepend(cardElement)});
