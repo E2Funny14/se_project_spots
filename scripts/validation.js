@@ -2,12 +2,12 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: ".modal__submit-btn:disabled",
+  inactiveButtonClass: ".modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error"
+  errorClass: "modal__error",
 }
 
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorMessageElement = formElement.querySelector('#' + inputElement.id + '-error');
   errorMessageElement.textContent = errorMessage;
   inputElement.classList.add(config.inputErrorClass);
@@ -70,7 +70,7 @@ const setEventListeners = (formElement) => {
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formElement) => {
-    setEventListeners(formElement);
+    setEventListeners(formElement, config);
   });
 };
 

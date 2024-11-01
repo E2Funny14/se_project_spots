@@ -40,7 +40,7 @@ const profileAddButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
-const modalBackground = document.querySelectorAll(".modal");
+const modals = document.querySelectorAll(".modal");
 const editModal = document.querySelector("#edit-modal");
 const editModalForm = editModal.querySelector(".modal__form");
 const closeProfileModal = editModal.querySelector(".modal__close-btn");
@@ -102,17 +102,27 @@ previewModalCloseBtn.addEventListener("click", () => {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("mousedown", closeModalByOverlay);
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("mousedown", closeModalByOverlay);
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
-document.addEventListener("keydown", (evt) => {
+function closeModalByOverlay(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  };
+}
+
+function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
-    modalBackground.forEach(modal => closeModal(modal));
+    modals.forEach(modal => closeModal(modal));
   }
-});
+};
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -140,7 +150,6 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalName.value = profileName.textContent.trim();
   editModalDescription.value = profileDescription.textContent.trim();
-  resetValidation(editModalForm, [editModalName, editModalDescription]);
 });
 
 closeProfileModal.addEventListener("click", () => {
