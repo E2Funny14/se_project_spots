@@ -7,7 +7,7 @@ const config = {
   errorClass: "modal__error",
 }
 
-const showInputError = (formElement, inputElement, errorMessage, config) => {
+const showInputError = (formElement, inputElement, errorMessage) => {
   const errorMessageElement = formElement.querySelector('#' + inputElement.id + '-error');
   errorMessageElement.textContent = errorMessage;
   inputElement.classList.add(config.inputErrorClass);
