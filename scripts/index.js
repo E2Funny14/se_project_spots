@@ -150,6 +150,7 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalName.value = profileName.textContent.trim();
   editModalDescription.value = profileDescription.textContent.trim();
+  resetValidation(editModalForm, [editModalName, editModalDescription]);
 });
 
 closeProfileModal.addEventListener("click", () => {
@@ -158,7 +159,6 @@ closeProfileModal.addEventListener("click", () => {
 
 profileAddButton.addEventListener("click", () => {
   openModal(cardModal);
-  resetValidation(cardModalForm, [cardLinkInput, cardCaptionInput]);
 });
 
 closeCardModal.addEventListener("click", () => {
