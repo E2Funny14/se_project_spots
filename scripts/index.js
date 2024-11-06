@@ -150,7 +150,10 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalName.value = profileName.textContent.trim();
   editModalDescription.value = profileDescription.textContent.trim();
-  resetValidation(editModalForm, [editModalName, editModalDescription]);
+  resetValidation(editModalForm, [editModalName, editModalDescription], {
+    inputErrorClass: "modal__input-error",
+    errorClass: "modal__error",
+  });
 });
 
 closeProfileModal.addEventListener("click", () => {
