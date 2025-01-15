@@ -1,3 +1,9 @@
+import { enableValidation, config } from "../scripts/validation.js";
+import "./index.css";
+import Api from "../scripts/utils/Api.js";
+import logoSrc from "../images/logo.svg";
+import avatarSrc from "../images/avatar.jpg";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -34,6 +40,22 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
 ];
+
+// const api = new Api({
+//   baseUrl: "https://around-api.en.tripleten-services.com/v1",
+//   headers: {
+//     authorization: "4b311c15-cf37-4436-8f59-6b4ee6874c8c",
+//     "Content-Type": "application/json",
+//   },
+// });
+
+// api.getInitialCards().then((cards) => {
+// });
+
+const headerLogo = document.getElementById("header-logo");
+headerLogo.src = logoSrc;
+const avatarPhoto = document.getElementById("avatar-photo");
+avatarPhoto.src = avatarSrc;
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
@@ -90,7 +112,7 @@ function getCardElement(data) {
   });
 
   cardDeleteBtn.addEventListener("click", () => {
-      cardElement.remove();
+    cardElement.remove();
   });
 
   return cardElement;
@@ -115,14 +137,14 @@ function closeModal(modal) {
 function closeModalByOverlay(evt) {
   if (evt.target.classList.contains("modal")) {
     closeModal(evt.target);
-  };
+  }
 }
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
-    modals.forEach(modal => closeModal(modal));
+    modals.forEach((modal) => closeModal(modal));
   }
-};
+}
 
 function handleEditModalFormSubmit(evt) {
   evt.preventDefault();
@@ -132,17 +154,18 @@ function handleEditModalFormSubmit(evt) {
 }
 editModalForm.addEventListener("submit", handleEditModalFormSubmit);
 
-function handleAddCardFormSubmit(evt){
+function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   const initialValues = {
     name: cardCaptionInput.value,
-    link: cardLinkInput.value };
+    link: cardLinkInput.value,
+  };
   const cardElement = getCardElement(initialValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
   disableButton(cardSubmitBtn, config);
   closeModal(cardModal);
-};
+}
 
 cardModalForm.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -170,7 +193,7 @@ closeCardModal.addEventListener("click", () => {
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
-  cardsList.prepend(cardElement);
+  cardsList.append(cardElement);
 });
 
-
+enableValidation(config);
