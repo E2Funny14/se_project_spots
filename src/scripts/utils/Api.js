@@ -83,54 +83,51 @@ class Api {
 
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ name, about })
+      body: JSON.stringify({ name, about }),
     }).then(this._checkResponse);
   }
 
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
-      method: 'POST',
+      method: "POST",
       headers: this._headers,
-      body: JSON.stringify({ name, link })
+      body: JSON.stringify({ name, link }),
     }).then(this._checkResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: 'DELETE',
-      headers: this._headers
+      method: "DELETE",
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: this._headers
+      method: "PUT",
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
   dislikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: this._headers
+      method: "DELETE",
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
   updateAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar })
+      body: JSON.stringify({ avatar }),
     }).then(this._checkResponse);
   }
 
   getAppInfo() {
-    return Promise.all([
-      this.getUserInfo(),
-      this.getInitialCards()
-    ]);
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 }
 

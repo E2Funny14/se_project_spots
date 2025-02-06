@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.profile__avatar-container:hover .profile__avatar-btn{
+.profile__avatar-container:hover .profile__avatar-btn {
   visibility: visible;
 }
 
