@@ -240,10 +240,7 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
   editModalName.value = profileName.textContent.trim();
   editModalDescription.value = profileDescription.textContent.trim();
-  resetValidation(editModalForm, [editModalName, editModalDescription], {
-    inputErrorClass: "modal__input-error",
-    errorClass: "modal__error",
-  });
+  resetValidation(editModalForm, [editModalName, editModalDescription], config);
 });
 
 avatarModalForm.addEventListener("submit", (evt) => {
