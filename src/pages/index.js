@@ -12,8 +12,11 @@ authorization: "7ea97be1-ac79-4fc2-bcf3-d29a380283eb",
 }
 });
 
+let userId;
+
 api.getUserInfo()
   .then((userInfo) => {
+    userId = userInfo.id;
     profileName.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
     profileAvatar.src = userInfo.avatar;
@@ -21,8 +24,8 @@ api.getUserInfo()
 .catch(console.error);
 
 api.getInitialCards().then((cards) => {
-cards.forEach((item) => {
-const cardElement = getCardElement(item);
+cards.forEach((data) => {
+const cardElement = getCardElement(data);
 cardsList.append(cardElement);
 });
 })
