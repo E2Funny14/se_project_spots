@@ -24,8 +24,8 @@ api.getUserInfo()
 .catch(console.error);
 
 api.getInitialCards().then((cards) => {
-cards.forEach((data) => {
-const cardElement = getCardElement(data);
+cards.forEach((item) => {
+const cardElement = getCardElement(item);
 cardsList.append(cardElement);
 });
 })
@@ -93,7 +93,10 @@ function getCardElement(data) {
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
 
-  if (data.likes?.some(like => like._id === userId)) {
+  // if (data.likes?.some(like => like._id === userId)) {
+  //   cardLikeBtn.classList.add("card__like-button_liked");
+  // }
+  if (data.isLiked) {
     cardLikeBtn.classList.add("card__like-button_liked");
   }
 
